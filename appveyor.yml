@@ -1,0 +1,21 @@
+version: 2026.4.{build}
+
+image: Visual Studio 2026
+
+dotnet_csproj:
+  patch: true
+  file: '**\*.*proj'
+  version: '{version}'
+  version_prefix: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
+build:
+  project: AppVeyorBuildAgentTestSolution.sln
+  publish_aspnet_core: true
+  parallel: true
+  verbosity: quiet
+
+test: off
