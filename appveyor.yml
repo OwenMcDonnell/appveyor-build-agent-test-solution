@@ -1,6 +1,6 @@
 version: 2026.4.{build}
 
-image: Visual Studio 2026
+image: Visual Studio 2022
 #image: vs2026-master-gce-us-central1
 #build_cloud: bakery-gce-us-central1
 
@@ -13,8 +13,13 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
+
+install: 
+  - appveyor version
+  
 before_build:
   - dotnet restore AppVeyorBuildAgentTestSolution.sln
+  
 build:
   project: AppVeyorBuildAgentTestSolution.sln
   publish_aspnet_core: true
